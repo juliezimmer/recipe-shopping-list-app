@@ -9,7 +9,10 @@
       <!-- this loops through the recipes and binds the recipe-->
       <app-recipe-item 
          *ngFor="let recipeEl of recipes"
-         [recipe]="recipeEl"> <!-- [recipe] binds the recipe property in the recipe-list.component.ts RecipeListComponent class. -->
+         [recipe]="recipeEl"
+         (recipeSelected)="onRecipeSelected(recipeEl)"> <!-- [recipe] binds the recipe property in the recipe-list.component.ts RecipeListComponent class. -->
+
+        
       </app-recipe-item>
    </div>
 </div>
