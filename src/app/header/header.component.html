@@ -1,23 +1,26 @@
 <nav class="navbar navbar-inverse">
    <div class="container-fluid">
       <div class="navbar-header">
+         <div>
+            <a class="navbar-brand" href="#">Recipe Keeper</a>
+         </div> 
          <button type="button" class="navbar-toggle collapsed"
             data-toggle="collapse" data-target="#collapsemenu">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="#">Recipe Keeper</a>
-      </div> 
+      </div>
+      
       <div class="collapse navbar-collapse" id="collapsemenu">
          <ul class="nav navbar-nav">
-            <li><a href="">Recipes</a></li>
-            <li><a href="">Shopping List</a></li>
+            <li><a href="#" (click)="onSelect('recipe')" >Recipes</a></li>
+            <li><a href="#" (click)="onSelect('shopping-list')"> Shopping List</a></li>
          </ul>
       
          <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-               <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="">Manage <span class="caret"></span></a>
+               <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">Manage <span class="caret"></span></a>
                <ul class="dropdown-menu">
                   <li><a href="#">Save Data</a></li>
                   <li><a href="#">Get Data</a></li>
