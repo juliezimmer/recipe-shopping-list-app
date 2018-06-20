@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // imports the ingredient class that was created in the shared folder as the Ingredient model.
 import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from './shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -10,19 +11,25 @@ import { Ingredient } from '../shared/ingredient.model';
 })
 
 export class ShoppingListComponent implements OnInit {
-   ingredients: Ingredient[] = [
-      // instantiates a new Ingredient class via the construtor. 
-      new Ingredient ('potatoes', 25),
-      new Ingredient ('flour', 10),
-   ];
+   // this is an uninitialized property
+   ingredients: Ingredient[]; 
    
-   constructor() { }
+   // inject ShoppingListService by binding it to a property, 'slService'
+   constructor(private slService: ShoppingListService) { }
 
    ngOnInit() {
+      // assigns ingredients to whatever is returned when getIngredients is called.
+      this.ingredients = this.slService.getIngredients();
+
+      // subscribe to the event emitter in the shoppingListService
+      this.slService.ingredientsChanged
+         .subscribe(
+            (ingredients: Ingredient[]) => {
+               this.ingredients = ingredients;
+            }
+         )
    }
 
-   onIngredientAdded(ingredient: Ingredient){
-      this.ingredients.push(ingredient);
-   }
+   
 
 }

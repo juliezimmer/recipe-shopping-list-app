@@ -9,12 +9,14 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+   // left undefined initially
    recipes: Recipe[];  
    
+   // the RecipeService is injected in the constructor as a parameter. The type, RecipeService, refers to the RecipeService class.  
    constructor(private recipeService: RecipeService) { }
 
    ngOnInit() {
-      // this provides a copy of the recipes array from the recipe.service.ts file. 
+      // this provides a copy of the recipes array from the recipe.service.ts file by calling the getRecipe method. 
       this.recipes = this.recipeService.getRecipes();
    }
 }
