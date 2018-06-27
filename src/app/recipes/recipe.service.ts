@@ -36,6 +36,11 @@ export class RecipeService {
       return this.recipes.slice();
    }
 
+   // loads a single recipe by id
+   getRecipe(index: number) {
+      return this.recipes[index];
+   }
+
    // this is called in the recipe-detail.component.ts file in the onAddToSHoppingList() method.
    addIngredientsToShoppingList(ingredients: Ingredient[]){
       // passes the ingredients to the ShoppingListService
