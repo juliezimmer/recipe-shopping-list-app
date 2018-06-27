@@ -1,18 +1,11 @@
 <div class="row">
    <div class="col-md-5">
-      <router-outlet></router-outlet>
+      <app-recipe-list></app-recipe-list>
       
    </div>
    <div class="col-md-7">
-      <!-- This is displayed only if the recipe is set -->
-      <app-recipe-detail 
-         *ngIf="selectedRecipe; else infoText"
-         [recipe]="selectedRecipe"> 
-      </app-recipe-detail>
-
-      <ng-template #infoText>
-         <p>Please Select a Recipe</p>
-      </ng-template>
+     <router-outlet></router-outlet>
+      
    </div>
 </div>
 
