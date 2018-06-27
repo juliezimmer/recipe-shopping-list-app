@@ -8,8 +8,9 @@
    <div class="col-xs-12">
       <!-- this loops through the recipes and binds the recipe-->
       <app-recipe-item 
-         *ngFor="let recipeEl of recipes"
-         [recipe]="recipeEl">
+         *ngFor="let recipeEl of recipes; let i = index"
+         [recipe]="recipeEl"
+         [index]="i">
        <!-- [recipe] binds the recipe property in the recipe-list.component.ts RecipeListComponent class. -->
       </app-recipe-item>
    </div>
