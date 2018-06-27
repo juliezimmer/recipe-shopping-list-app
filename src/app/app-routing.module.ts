@@ -7,7 +7,12 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 const appRoutes: Routes = [
    // the path that is reached when the app is loaded for the first time
    { path:'', redirectTo: '/recipes', pathMatch: 'full'},
-   { path: 'recipes', component: RecipesComponent },
+   { 
+      path: 'recipes', 
+      component: RecipesComponent,
+      children: [
+         { path:'', component: }
+      ] },
    { path: 'shopping-list', component: ShoppingListComponent }
 ];
 @NgModule({
