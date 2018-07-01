@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 // the Recipe Model 
 import { Recipe } from './recipe.model';
@@ -7,10 +7,7 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
 @Injectable()
 export class RecipeService {
-   // this is an object that is instantiated by using EventEmitter.
-   // The EventEmitter will hold some Recipe data.
-   // The type, Recipe, is the Recipe model.
-   recipeSelected = new EventEmitter<Recipe>();
+   
    
    // this WAS in recipe-list.components.ts in the RecipeListComponent class before the recipe service was added.  This represents all of the recipes in the book and is an array of recipes. 
    // The recipes array is made private so that is can't be directly accssed from the outside. 

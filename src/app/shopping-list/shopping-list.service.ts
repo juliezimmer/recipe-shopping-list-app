@@ -1,9 +1,8 @@
-import { EventEmitter } from '@angular/core';
-
 import { Ingredient } from '../shared/ingredient.model';
+import { Subject } from 'rxjs/Subject';
 
 export class ShoppingListService {
-   ingredientsChanged = new EventEmitter<Ingredient[]>(); 
+   ingredientsChanged = new Subject<Ingredient[]>(); 
 
    private ingredients: Ingredient[] = [
       // instantiates a new Ingredient class via the construtor. 
@@ -19,13 +18,13 @@ export class ShoppingListService {
    addIngredient(ingredient: Ingredient) {
       this.ingredients.push(ingredient);
       // when the array of ingredients has been changed ingredientsChanged is called with .emit() to emite a new Event. The value passed to the method is the original ingredients array called using the slice method to get an exact copy of the array. This ensures that the ingredients are always up to date and reflect any changes that may have been made to the ingredient list. 
-      this.ingredientsChanged.emit(this.ingredients.slice());
+      this.ingredientsChanged.next(this.ingredients.slice());
    }
 
    addIngredients(ingredients: Ingredient[]){
       // uses the spread operator to turn an array into a list, so the ingredients are pushed onto a list of ingredients.
       this.ingredients.push(...ingredients);
       // emit the changed ingredients by passing an exact copy of the array 
-      this.ingredientsChanged.emit(this.ingredients.slice());
+      this.ingredientsChanged.next(this.ingredients.slice());
    }
 }
